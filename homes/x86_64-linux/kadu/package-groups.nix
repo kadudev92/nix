@@ -26,7 +26,7 @@ let
     mail = true;
     media = true;
     monitoring = true;
-    networking = true; # Cisco Packet Tracer 9 (needs NetAcad .deb in nix store)
+    networking = false; # Cisco Packet Tracer 9 (needs NetAcad .deb in nix store)
     nix = true;
     notes = true;
     office = true;
