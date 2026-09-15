@@ -141,6 +141,11 @@ in
       home.packages = [
         pkgs.code-cursor
         cursorIcons
+        # FHS wrap helps VS Code-style extensions / Playwright chrome lookup.
+        pkgs.antigravity-fhs
+        pkgs.jetbrains.idea
+        pkgs.jetbrains.clion
+        pkgs.jetbrains.datagrip
       ];
 
       programs.zed-editor = {
@@ -295,6 +300,14 @@ in
       home.packages = [ pkgs.maven ];
     })
 
+    (lib.mkIf (on "php") {
+      home.packages = with pkgs; [
+        php
+        phpPackages.composer
+        apacheHttpd
+      ];
+    })
+
     (lib.mkIf (on "rust") (
       let
         # Binary toolchain with wasm target (nixpkgs rustc has host only).
@@ -333,17 +346,16 @@ in
           enable = true;
           package = null;
           settings = {
-            target."x86_64-unknown-linux-gnu".rustflags =
-              [
-                "-C"
-                "link-arg=-fuse-ld=mold"
-                "-C"
-                "link-arg=-B${pkgs.mold}/bin"
-              ]
-              ++ lib.optionals (cfg.dioxus.enable || cfg.tauri.enable) [
-                "-C"
-                "link-arg=-L${pkgs.xdotool}/lib"
-              ];
+            target."x86_64-unknown-linux-gnu".rustflags = [
+              "-C"
+              "link-arg=-fuse-ld=mold"
+              "-C"
+              "link-arg=-B${pkgs.mold}/bin"
+            ]
+            ++ lib.optionals (cfg.dioxus.enable || cfg.tauri.enable) [
+              "-C"
+              "link-arg=-L${pkgs.xdotool}/lib"
+            ];
           };
         };
       }

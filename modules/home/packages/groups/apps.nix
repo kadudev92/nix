@@ -21,7 +21,10 @@ in
     })
 
     (lib.mkIf (on "api") {
-      home.packages = [ pkgs.insomnia ];
+      home.packages = with pkgs; [
+        insomnia
+        postman
+      ];
     })
 
     (lib.mkIf (on "office") {
@@ -36,11 +39,23 @@ in
     })
 
     (lib.mkIf (on "learning") {
-      home.packages = [ pkgs.anki ];
+      home.packages = with pkgs; [
+        anki
+        arduino-ide
+      ];
     })
 
     (lib.mkIf (on "browsers") {
-      home.packages = [ pkgs.chromium ];
+      home.packages = with pkgs; [
+        chromium
+        brave
+      ];
+    })
+
+    # Requires: download CiscoPacketTracer_900_Ubuntu_64bit.deb from NetAcad, then
+    #   nix-store --add-fixed sha256 CiscoPacketTracer_900_Ubuntu_64bit.deb
+    (lib.mkIf (on "networking") {
+      home.packages = [ pkgs.ciscoPacketTracer9 ];
     })
 
     (lib.mkIf (on "proton") {

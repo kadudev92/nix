@@ -14,7 +14,7 @@ let
     fonts = "user fonts";
 
     editors = "lightweight editors (neovim, helix)";
-    ides = "heavy IDEs (VS Code, Cursor, Zed)";
+    ides = "heavy IDEs (Cursor, Zed, Antigravity, JetBrains)";
     cli = "CLI essentials (fzf, bat, broot, yazi, …)";
     c = "C toolchain (gcc)";
     python = "Python tooling (uv)";
@@ -32,11 +32,13 @@ let
     api = "API clients";
     office = "office suite";
     notes = "markdown / notes";
-    learning = "flashcards / study";
+    learning = "flashcards / study / Arduino IDE";
     browsers = "browsers";
     proton = "Proton suite (VPN, Pass, Mail Bridge)";
     mail = "mail client";
     communication = "communication apps";
+    php = "PHP toolchain (php, composer) — XAMPP-style with MySQL module";
+    networking = "Cisco Packet Tracer (needs NetAcad .deb in the nix store)";
 
     media = "media playback (VLC, Popcorn Time, spotify-player)";
     creator = "recording / editing";

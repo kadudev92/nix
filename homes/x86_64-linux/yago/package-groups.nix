@@ -37,6 +37,8 @@ let
     proton = true;
     mail = true;
     communication = true;
+    php = false;
+    networking = false; # Packet Tracer needs NetAcad .deb
 
     # media
     media = true;

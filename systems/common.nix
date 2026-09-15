@@ -18,6 +18,7 @@
     "nh"
     "nix"
     "postgresql"
+    "mysql"
     "sqlserver"
     "power"
     "printing"
