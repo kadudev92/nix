@@ -15,6 +15,7 @@ in
   config = lib.mkMerge [
     (lib.mkIf (on "databases") {
       home.packages = with pkgs; [
+        mysql-workbench
         dbeaver-bin
         beekeeper-studio
       ];
